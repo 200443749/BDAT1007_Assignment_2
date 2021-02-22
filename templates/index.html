@@ -1,0 +1,97 @@
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>Social Data API</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="/static/css/home.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Social Media API</h1>
+        <br>
+		<div class="main-agileinfo">
+			<h5 style="color:whitesmoke;text-align:center;font-family: 'American Typewriter, serif', cursive;">
+				Welcome to the social media API, Please choose your social account!
+			</h5>
+			<div class="agileits-top" style="margin-left: 166px;">
+				<a href="{{ url_for('Twitterform')}}">
+				<img src="/static/img/tweet.png" class="imghome" >
+			</a>
+			<a href="{{ url_for('Redditform')}}">
+				<img src="/static/img/reddit.png" class="imghome" >
+				</a>
+				<a href="https://cloud.mongodb.com/v2/5fca9656613d9311566c9278#clusters" target="_blank">
+					<img src="/static/img/mongo.png" class="imghome1" >
+					</a>
+			</div>
+		</div>
+		<div class="container mt-4 mb-5">
+			<div class="d-flex justify-content-center row">
+				<div class="col-md-8">
+					<div class="feed p-2">
+						{% for item in tweet_list%}
+						<div class="bg-white border mt-2">
+							<div>
+								<div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+									<div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="/static/img/twitter.png" width="45">
+										<div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">{{item.Name}}</span><span class="text-black-50 time">{{item.PostDate}}</span></div>
+									</div>
+									<div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+								</div>
+							</div>
+							<div class="p-2 px-3"><span>{{item.Tweet}}</span></div>
+						</div>
+						{% endfor %}
+						{% for item in reddit_list%}
+						<div class="bg-white border mt-2">
+							<div>
+								<div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+									<div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="/static/img/reddit.png" width="45">
+										<div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">{{item.Name}}</span><span class="text-black-50 time">{{item.PostDate}}</span></div>
+									</div>
+									<div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+								</div>
+							<div class="p-2 px-3"><span>{{item.Description}}</span></div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- copyright -->
+		<div class="colorlibcopy-agile">
+		</div>
+		<!-- //copyright -->
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>
